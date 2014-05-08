@@ -3,7 +3,7 @@
 angular.module('angularMapApp')
   .directive('locationMap', function () {
     return {
-      template: '<google-map center=\"map.start\" zoom=\"map.zoom\" draggable=\"true\" options=\"map.options\" control=\"map.control\"><marker coords=\"location\" options=\"marker.options\" events=\"marker.events\"></marker></google-map>',
+      templateUrl: '/views/templates/locationmap.html',
       restrict: 'EA',
       scope: {
         location: '='
