@@ -3,17 +3,20 @@
 angular.module('angularMapApp')
   .directive('locationMap', function () {
     return {
-      template: '<google-map center=\"location\" zoom=\"map.zoom\" draggable=\"true\" options=\"map.options\" control=\"map.control\"><marker coords=\"location\" options=\"marker.options\" events=\"marker.events\"></marker></google-map>',
-      restrict: 'E',
+      template: '<google-map center=\"map.start\" zoom=\"map.zoom\" draggable=\"true\" options=\"map.options\" control=\"map.control\"><marker coords=\"location\" options=\"marker.options\" events=\"marker.events\"></marker></google-map>',
+      restrict: 'EA',
+      scope: {
+        location: '='
+      },
       controller: function ($scope) {
-        $scope.location = {
-          latitude: 54.1798640,
-          longitude: -4.4436250
-        };
-
+        if (!$scope.location) {
+          throw new Error('location must be supplied to location-map directive');
+        }
+        
         $scope.map = {
           control: {},
-          zoom: 8,
+          start: angular.copy($scope.location), // use the location passed as the start position
+          zoom: 7,
           options: {
             streetViewControl: false
           }
