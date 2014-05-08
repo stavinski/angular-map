@@ -5,9 +5,7 @@
 <div class="main">
   <h3>Pick Location</h3>
   
-  <google-map center="location" zoom="map.zoom" draggable="true" options="map.options" control="map.control">
-    <marker coords="location" options="marker.options" events="marker.events"></marker>
-  </google-map>
+  <location-map></location-map>
   
   <p>
     <div>latitude: <strong>{{location.latitude}}</strong></div>
