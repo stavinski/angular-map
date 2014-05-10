@@ -1,4 +1,4 @@
 
 'use strict';
 
-angular.module('angularMapApp', ['ngRoute', 'google-maps']);
+angular.module('angularMapApp', ['angular-geo-maplocation', 'ngGeolocation']);
