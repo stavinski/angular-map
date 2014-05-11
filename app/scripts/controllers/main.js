@@ -19,7 +19,10 @@ angular.module('angularMapApp').controller('MainCtrl', ['$scope', '$timeout', 'g
       geoLocation.position()
         .then(function (pos) {
           console.log(pos);
-          self.coords = pos;
+          self.coords = {
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude
+          };
         })
         .catch(function (err) {
           console.log(err);
