@@ -16,16 +16,14 @@ angular.module('angularMapApp').controller('MainCtrl', ['$scope', '$timeout', 'g
       // we should at least show the user retrieving for a second
       $timeout(function () { minDelay = true; }, 1000);
       
-      geoLocation.position()
+      geoLocation.getLocation()
         .then(function (pos) {
-          console.log(pos);
           self.coords = {
             latitude: pos.coords.latitude,
             longitude: pos.coords.longitude
           };
         })
         .catch(function (err) {
-          console.log(err);
           self.lastError = err;
           self.retrieving = false;
         })
